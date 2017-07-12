@@ -11,6 +11,7 @@ import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.oauth2.client.OAuth2ClientContext;
 import org.springframework.security.oauth2.client.OAuth2RestTemplate;
 import org.springframework.security.oauth2.client.filter.OAuth2ClientAuthenticationProcessingFilter;
@@ -36,6 +37,7 @@ public class Tutoauth2Application extends WebSecurityConfigurerAdapter {
 
     @RequestMapping("/user")
     public Principal user(Principal principal) {
+        // SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         return principal;
     }
 
